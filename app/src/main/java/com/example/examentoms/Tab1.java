@@ -3,6 +3,11 @@ package com.example.examentoms;
 import static android.content.Context.LOCATION_SERVICE;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -24,7 +29,7 @@ public class Tab1 extends Fragment implements LocationListener {
     // 8.- Geolocalización CUIDADO: Para que funcione hay que dar permiso manualmente en el dispositivo
     LocationManager manejador;
     TextView latitud, longitud;
-    Button button1;
+    Button button1, button3;
     EditText editText;
 
     @Override
@@ -41,6 +46,7 @@ public class Tab1 extends Fragment implements LocationListener {
         editText = view.findViewById(R.id.editText);
         latitud = view.findViewById(R.id.latitud);
         longitud = view.findViewById(R.id.longitud);
+        button3 = view.findViewById(R.id.button3);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +61,19 @@ public class Tab1 extends Fragment implements LocationListener {
         });
         // 8.- Geolocalización
         manejador = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
+        // 9.- Receptror anuncio
+        IntentFilter filtro = new IntentFilter(Intent.ACTION_POWER_DISCONNECTED);
+        filtro.addCategory(Intent.CATEGORY_DEFAULT);
+        getActivity().registerReceiver(new ReceptorAnuncios(), filtro);
         return view;
+    }
+
+    // 9.- Receptror anuncio
+    public class ReceptorAnuncios extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            button3.setBackgroundColor(Color.RED);
+        }
     }
 
     // 8.- Geolocalización
