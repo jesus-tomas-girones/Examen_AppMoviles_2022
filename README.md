@@ -87,7 +87,7 @@ c) Muestra el volumen de zumo que podemos obtener de cada variedad.   solución:
 
 16. Para facilitar la corrección, marca en esta hoja con una X, los ejercicios que has realizado. Añade los comentarios oportunos:
 
-´´´
+```
 (_)	1.-Tab
 (_)	2.-Layout
 (_) 3.-Propiedades vistas
@@ -98,6 +98,6 @@ c) Muestra el volumen de zumo que podemos obtener de cada variedad.   solución:
 (_)	8.-Geolocalización
 (_)	9.-Receptor anuncio
 (_) 10.-Guardar estado
+```
 
-´´´
 16.	Ejecuta el proyecto en un terminal o emulador y avisa al profesor para que lo evalúe.
