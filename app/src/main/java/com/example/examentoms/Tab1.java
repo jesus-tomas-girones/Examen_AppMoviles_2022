@@ -32,6 +32,8 @@ public class Tab1 extends Fragment implements LocationListener {
     Button button1, button3;
     EditText editText;
 
+    private boolean colorCambiado = false; // 10.- Guardar estado
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,12 @@ public class Tab1 extends Fragment implements LocationListener {
         IntentFilter filtro = new IntentFilter(Intent.ACTION_POWER_DISCONNECTED);
         filtro.addCategory(Intent.CATEGORY_DEFAULT);
         getActivity().registerReceiver(new ReceptorAnuncios(), filtro);
+        //10.- Guardar estado
+        if (savedInstanceState != null) {
+            button1.setText(savedInstanceState.getString("TEXTO_BOTON1"));
+            colorCambiado = savedInstanceState.getBoolean("COLOR_CAMBIADO");
+            if (colorCambiado) button3.setBackgroundColor(Color.RED);
+        }
         return view;
     }
 
@@ -73,6 +81,7 @@ public class Tab1 extends Fragment implements LocationListener {
         @Override
         public void onReceive(Context context, Intent intent) {
             button3.setBackgroundColor(Color.RED);
+            colorCambiado = true;
         }
     }
 
@@ -93,6 +102,13 @@ public class Tab1 extends Fragment implements LocationListener {
     public void onLocationChanged(@NonNull Location location) {
         latitud.setText("" + location.getLatitude());
         longitud.setText("" + location.getLongitude());
+    }
+    // 10.- Guardar estado
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("TEXTO_BOTON1", button1.getText().toString());
+        outState.putBoolean("COLOR_CAMBIADO", colorCambiado);
     }
 
 }
