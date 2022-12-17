@@ -8,14 +8,27 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     // 1.-Tab
     private final String[] nombres = new String[]{"Pestaña 1","Pestaña 2"};
+    // 4.- Java
+    static List<Integer> MINUTO = Arrays.asList( // tiempo en que entra
+            0,   4,  7, 10,     17, 22, 30, 45, 50);
+    static List<String> VARIEDAD = Arrays.asList( //tipo de naranja
+            "valencia",  "navel",  "valencia", "clementina",
+            "navel",  "valencia", "clementina", "valencia" );
+    static List<Double> DIAMETRO = Arrays.asList( //diámetro medio en cm
+            8.0, 9.0, 7.0, 3.0,       6.0, 9.0, 4.0, 6.0);
+    static List<Naranjas> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         ).attach();
+        // 4.- Java
+        lista = Naranjas.creaLista(MINUTO, VARIEDAD, DIAMETRO);
+        Log.d("Examen", lista.toString());
+
     }
 
     // 1.- Tab
