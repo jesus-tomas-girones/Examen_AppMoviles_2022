@@ -1,6 +1,6 @@
-Cada Commit corresponde a un punto del ejercicio.
+NOTA: Cada Commit corresponde a un punto del ejercicio.
 
-Cada punto tiene un valor de 1 excepto 5-Algoritmo y 6-RecyclerView que valen2.
+NOTA: Cada punto tiene un valor de 1 excepto 5-Algoritmo y 6-RecyclerView que valen 2.
 
 NOTA: Este examen es más complicado de resolver dado que muchos ejercicios se piden sobre un Fragment (Tab1) en lugar de sobre una Antividad.
 
@@ -28,7 +28,7 @@ Package name: com.example.apellido.examen
 **2. Layout** En la primera pestaña se mostrará un layout igual al siguiente:
 
 
-![imagen del layout](https://raw.githubusercontent.com/jesus-tomas-girones/Examen_AppMoviles_2022/master/layout.jpg)
+![imagen del layout](https://raw.githubusercontent.com/jesus-tomas-girones/Examen_AppMoviles_2022/master/layout.png)
 
 •	Por defecto, las vistas se separan del borde y entre si 16 dp.
 
