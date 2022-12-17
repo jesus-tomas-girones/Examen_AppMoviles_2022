@@ -14,7 +14,11 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private final String[] nombres = new String[]{"Pestaña 1","Pestaña 2"};
     // 4.- Java
     static List<Integer> MINUTO = Arrays.asList( // tiempo en que entra
-            0,   4,  7, 10,     17, 22, 30, 45, 50);
+            0,   5,  7, 10,     17, 22, 30, 45, 50);
     static List<String> VARIEDAD = Arrays.asList( //tipo de naranja
             "valencia",  "navel",  "valencia", "clementina",
             "navel",  "valencia", "clementina", "valencia" );
@@ -50,7 +54,36 @@ public class MainActivity extends AppCompatActivity {
         // 4.- Java
         lista = Naranjas.creaLista(MINUTO, VARIEDAD, DIAMETRO);
         Log.d("Examen", lista.toString());
-
+        // 5.a - Algoritmo
+        Set<String> variedades = new HashSet<>();
+        for (Naranjas naranjas : lista) {
+            variedades.add(naranjas.getVariedad());
+        }
+        Log.d("Examen", variedades.toString());
+        // 5.b - Algoritmo
+        Map<String,Integer> cantidad = new HashMap<>();
+        for(String variedad : variedades){
+            int contador = 0;
+            for (Naranjas naranjas : lista) {
+                if(naranjas.getVariedad().equals(variedad)){
+                    contador+=naranjas.getPeriodo()*100;
+                }
+                cantidad.put(variedad, contador);
+            }
+        }
+        Log.d("Examen", "Cantidades: "+cantidad.toString());
+        // 5.c- Algoritmo
+        Map<String,Double> volumen = new HashMap<>();
+        for(String variedad : variedades){
+            double contador = 0;
+            for (Naranjas naranjas : lista) {
+                if(naranjas.getVariedad().equals(variedad)){
+                    contador+=naranjas.getPeriodo()*100 * 4/3*Math.PI*Math.pow(naranjas.getDiametro()/2,3);
+                }
+                volumen.put(variedad, contador);
+            }
+        }
+        Log.d("Examen", "Volumenes: "+volumen.toString());
     }
 
     // 1.- Tab
