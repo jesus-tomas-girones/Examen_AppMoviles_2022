@@ -100,4 +100,4 @@ c) Muestra el volumen de zumo que podemos obtener de cada variedad.   solución:
 (_) 10.-Guardar estado
 ```
 
-16.	Ejecuta el proyecto en un terminal o emulador y avisa al profesor para que lo evalúe.
+17.	Ejecuta el proyecto en un terminal o emulador y avisa al profesor para que lo evalúe.
