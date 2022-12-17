@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class Tab2 extends Fragment {
 
+    // 6.- RecyclerView
+    private RecyclerView recyclerView;
+    public Adaptador adaptador = new Adaptador(MainActivity.lista);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +24,11 @@ public class Tab2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab2, container, false);
+        // 6.- RecyclerView
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adaptador);
         return view;
     }
 }
